@@ -77,7 +77,43 @@
         .thumbnails img { width: 60px; height: 60px; object-fit: cover; cursor: pointer; border: 2px solid #eee; }
         .thumbnails img.active { border-color: var(--stihl-orange); }
 
-        footer { background: var(--dark); color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        footer { 
+            background: var(--dark); 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            margin-top: 40px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 10px;
+        }
+        
+        /* ESTILO DO ÍCONE DO DESENVOLVEDOR */
+        .dev-link {
+            text-decoration: none;
+            color: var(--stihl-orange);
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+        .dev-link:hover { opacity: 1; }
+        .dev-icon {
+            padding: 0 8px;
+            height: 24px;
+            background: white;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            color: var(--dark);
+        }
     </style>
 </head>
 <body>
@@ -105,7 +141,12 @@
     </div>
 </div>
 
-<footer><p>&copy; 2026 VETMAQ - AUTORIZADA - STIHL</p></footer>
+<footer>
+    <p>&copy; 2026 VETMAQ - AUTORIZADA - STIHL</p>
+    <a href="https://wnetbr.github.io/-" target="_blank" class="dev-link">
+        Desenvolvido por <div class="dev-icon">WNET</div>
+    </a>
+</footer>
 
 <script>
     const produtos = [
@@ -139,12 +180,10 @@
                       { nome: "SG 11", preco: "Consulte Preço", fotos: ["https://stihlferramentas.vtexassets.com/arquivos/ids/155485/36463_Z-SG11-S001_EU---usable-RoW.jpg?v=638334251658500000"] },
                        { nome: "SG 20", preco: "Consulte Preço", fotos: ["https://http2.mlstatic.com/D_NQ_NP_892930-MLA95878403968_102025-O.webp"] },
                        { nome: "SG 71", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/502737/pulverizador_costal_manual_stihl_sg_71_18_litros_5082_1_0df665a082377a364088d551440f4000_20251013165236.jpg"] },
-                       { nome: "SG 71", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/502737/pulverizador_costal_manual_stihl_sg_71_18_litros_5082_1_0df665a082377a364088d551440f4000_20251013165236.jpg"] },
                        { nome: "Soprador BG 50", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/1340586/sopradora_gasolina_stihl_bg_50_101_1_c2b8b27046cb975236a78bf4ef97ac3c.jpg"] },
                        { nome: "Soprador BG 56", preco: "Consulte Preço", fotos: ["https://cdnv2.moovin.com.br/bimagril/imagens/produtos/det/soprador-bg-56-a-gasolina-stihl-7e3279c5b61e9b01396877387e6c7f54.webp"] },
                        { nome: "Soprador BG 86 C-E", preco: "Consulte Preço", fotos: ["https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/csferramentas/media/uploads/produtos/foto/eabpsttb/17724.jpg"] },
  { nome: "Soprador Eletrico BGE 71", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/972835/soprador_stihl_bge_71_cod_4811_011_1505_127v_ou_4811_011_1506_220v_eletrico_4619_1_57af1ffebf67f8d6f7f3a32e17f99ae9.png"] },
- { nome: "Soprador a Bateria BGA 45", preco: "Consulte Preço", fotos: ["https://www.stihl.com.br/content/dam/stihl/media/pim/43466.jpg"] },
  { nome: "Soprador a Bateria BGA 45", preco: "Consulte Preço", fotos: ["https://www.stihl.com.br/content/dam/stihl/media/pim/43466.jpg"] },
 { nome: "Soprador SH 56", preco: "Consulte Preço", fotos: ["https://gkseg.agilecdn.com.br/32690_1.jpg"] },
 { nome: "Podador HS 45", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/1004808/podador_stihl_hs_45_a_gasolina_1_1_cv_697_1_4808947c5ded4432fae1f03fef76c045.jpg"] },
