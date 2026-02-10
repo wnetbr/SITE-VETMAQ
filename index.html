@@ -44,8 +44,25 @@
         }
 
         /* VITRINE */
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .grid-produtos { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 10px; }
+        .grid-produtos { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+            gap: 15px; 
+        }
+
+        /* ADAPTAÇÃO PARA GRADE DUPLA NO CELULAR */
+        @media (max-width: 600px) {
+            .grid-produtos {
+                grid-template-columns: repeat(2, 1fr); /* Força 2 colunas */
+                gap: 10px;
+            }
+            .card { padding: 10px; }
+            .card h3 { font-size: 0.75rem; height: 35px; }
+            .card .preco { font-size: 1rem; }
+            .card img { height: 130px; }
+            header h1 { font-size: 1.8rem; }
+        }
 
         .card {
             background: var(--white); padding: 15px;
@@ -89,7 +106,6 @@
             gap: 10px;
         }
         
-        /* ESTILO DO ÍCONE DO DESENVOLVEDOR */
         .dev-link {
             text-decoration: none;
             color: var(--stihl-orange);
@@ -237,7 +253,6 @@
     const campoBusca = document.getElementById('busca');
     const modal = document.getElementById('modal-galeria');
 
-    // Função para abrir o WhatsApp
     function irParaWhats(nomeProduto) {
         const numero = "5597991840894";
         const mensagem = encodeURIComponent(`Olá! Tenho interesse no produto: ${nomeProduto}. Gostaria de mais informações.`);
@@ -249,14 +264,13 @@
         lista.forEach(p => {
             const card = document.createElement('div');
             card.className = 'card';
-            // Clique no card abre a galeria
             card.onclick = () => abrirGaleria(p);
             
             card.innerHTML = `
                 <img src="${p.fotos[0]}" onerror="this.src='https://via.placeholder.com/250x200?text=Imagem+Indisponível'">
                 <h3>${p.nome}</h3>
                 <p class="preco">${p.preco}</p>
-                <button onclick="event.stopPropagation(); irParaWhats('${p.nome}')" style="background:var(--stihl-orange); color:white; border:none; padding:10px; cursor:pointer; font-weight:bold; border-radius: 5px;">NEGOCIAR</button>
+                <button onclick="event.stopPropagation(); irParaWhats('${p.nome}')" style="background:var(--stihl-orange); color:white; border:none; padding:10px; cursor:pointer; font-weight:bold; border-radius: 5px; font-size: 0.8rem; width: 100%;">NEGOCIAR</button>
             `;
             vitrine.appendChild(card);
         });
@@ -265,8 +279,6 @@
     function abrirGaleria(p) {
         document.getElementById('img-principal').src = p.fotos[0];
         document.getElementById('modal-titulo').innerText = p.nome;
-        
-        // Configura o botão do modal também
         document.getElementById('btn-whats-modal').onclick = () => irParaWhats(p.nome);
 
         const thumbs = document.getElementById('modal-thumbs');
