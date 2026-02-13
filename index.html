@@ -76,15 +76,14 @@
             line-height: 1.6;
         }
 
-        /* HEADER */
+        /* HEADER - Ajustado Z-INDEX e Cor sólida para proibir sobreposição */
         header {
-            background-color: rgba(33, 33, 33, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: var(--stihl-grey-dark);
             border-bottom: 6px solid var(--stihl-orange);
             padding: 15px 0;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 10000;
             box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             animation: fadeInDown 0.5s ease;
         }
@@ -103,6 +102,14 @@
             padding: 0 20px;
         }
 
+        /* ESTILO DA FOTO DO CABEÇALHO */
+        .logo-foto {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
         /* --- ANIMAÇÃO DO NOME VETMAQ --- */
         header h1 { 
             color: var(--white); 
@@ -112,19 +119,18 @@
             letter-spacing: -1px;
             font-weight: 900;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: stihlColors 6s infinite alternate; /* Adicionado */
+            animation: stihlColors 6s infinite alternate; 
         }
 
-        /* O Span "MAQ" também segue a animação de forma invertida ou fixa */
         header h1 span { 
             color: var(--stihl-orange); 
-            animation: stihlColorsSpan 6s infinite alternate; /* Adicionado */
+            animation: stihlColorsSpan 6s infinite alternate; 
         }
 
         @keyframes stihlColors {
             0% { color: var(--white); }
             50% { color: var(--stihl-orange); }
-            100% { color: #ff9955; } /* Um tom de laranja mais claro, estilo STIHL */
+            100% { color: #ff9955; }
         }
 
         @keyframes stihlColorsSpan {
@@ -132,7 +138,6 @@
             50% { color: var(--white); }
             100% { color: var(--stihl-orange); }
         }
-        /* -------------------------------- */
 
         /* BUSCA */
         .search-container { 
@@ -158,7 +163,13 @@
         }
 
         /* VITRINE */
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
+        .container { 
+            max-width: 1200px; 
+            margin: 30px auto; 
+            padding: 0 15px; 
+            position: relative;
+            z-index: 1;
+        }
         
         .grid-produtos { 
             display: grid; 
@@ -319,7 +330,7 @@
 
         #modal-galeria {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9); z-index: 2000;
+            background: rgba(0,0,0,0.9); z-index: 11000;
             justify-content: center; align-items: center; backdrop-filter: blur(8px);
         }
         .modal-content {
@@ -343,6 +354,7 @@
         footer { 
             background: var(--stihl-grey-dark); color: white; text-align: center; 
             padding: 60px 20px; margin-top: 80px; border-top: 8px solid var(--stihl-orange);
+            position: relative; z-index: 1;
         }
         .footer-logo { font-size: 2rem; font-weight: 900; margin-bottom: 15px; }
         .footer-logo span { color: var(--stihl-orange); }
@@ -355,6 +367,8 @@
 
 <header>
     <div class="header-content">
+        <img src="LINK_DA_SUA_FOTO_AQUI" alt="Logo VETMAQ" class="logo-foto">
+        
         <h1>VET<span>MAQ</span></h1>
         <div class="search-container">
             <input type="text" id="busca" placeholder="O que você procura?">
@@ -403,16 +417,16 @@
         { nome: "Motoserra MS 382", preco: "Consulte Preço", fotos: ["https://cdnv2.moovin.com.br/bimagril/imagens/produtos/det/motosserra-a-gasolina-ms-382-stihl-a727db31cee5ee5eb471f1688f5dd147.webp"] },
         { nome: "Motosserra MS 462", preco: "Consulte Preço", fotos: ["https://cdnv2.moovin.com.br/bimagril/imagens/produtos/det/motosserra-a-gasolina-ms-462-stihl-7859bf2fb36bc70dc28c8b00c25d4314.webp"] },
         { nome: "Motosserra MS 661", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/972835/motosserra_stihl_ms_661_com_sabre_a_gasolina_2303_1_b800c96ec8a3e31975e173a563ae654a.png"] },
-        { nome: "Rossadeira FSA 30", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/502737/rocadeira_a_bateria_stihl_fsa_30_240w_0_13_kw_kit_com_bateria_as2_carregador_al1_e_cabecote_de_nylon_4582_1_8a48d7671ae6c0760643d26e9c56331e_20251013164612.jpg"] },
-        { nome: "Rossadeira FS 38", preco: "Consulte Preço", fotos: ["https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/csferramentas/media/uploads/produtos/foto/zxhqkssm/05646.jpg"] },
-        { nome: "Rossadeira FS 55 R", preco: "Consulte Preço", fotos: ["https://cdn.awsli.com.br/1102/1102430/produto/127225276/stihl-fs-55-trvpwe.jpg"] },
-        { nome: "Rossadeira FS 80", preco: "Consulte Preço", fotos: ["https://casadopicapau.vtexassets.com/arquivos/ids/167004/Stihl-fs80.png?v=638884383893970000"] },
-        { nome: "Rossadeira FS 85", preco: "Consulte Preço", fotos: ["https://stihlferramentas.vtexassets.com/arquivos/ids/156128/FS-85-1080X1080--1-.jpg?v=638790421501500000"] },
-        { nome: "Rossadeira FS 120", preco: "Consulte Preço", fotos: ["https://cdn.awsli.com.br/1102/1102430/produto/130066359/0d82f0f814.jpg"] },
-        { nome: "Rossadeira FS 161", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/972835/rocadeira_stihl_fs_161_a_gasolina_7157_2_aae02f1e144cd3388117fafafbd5e0f4.png"] },
-        { nome: "Rossadeira FS 221", preco: "Consulte Preço", fotos: ["https://cdn.awsli.com.br/1102/1102430/produto/237855304/rocadeira-stihl-fs-221-c-rgf185kn38.jpg"] },
-        { nome: "Rossadeira FS 291", preco: "Consulte Preço", fotos: ["https://camagri.com.br/wp-content/uploads/2025/03/291.webp"] },
-        { nome: "Rossadeira FS 460", preco: "Consulte Preço", fotos: ["https://casadopicapau.vtexassets.com/arquivos/ids/169028/Rocadeira-FS-460-Stihl-TrimCut-.png.png?v=638804240635970000"] },
+        { nome: "Roçadeira FSA 30", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/502737/rocadeira_a_bateria_stihl_fsa_30_240w_0_13_kw_kit_com_bateria_as2_carregador_al1_e_cabecote_de_nylon_4582_1_8a48d7671ae6c0760643d26e9c56331e_20251013164612.jpg"] },
+        { nome: "Roçadeira FS 38", preco: "Consulte Preço", fotos: ["https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/csferramentas/media/uploads/produtos/foto/zxhqkssm/05646.jpg"] },
+        { nome: "Roçadeira FS 55 R", preco: "Consulte Preço", fotos: ["https://cdn.awsli.com.br/1102/1102430/produto/127225276/stihl-fs-55-trvpwe.jpg"] },
+        { nome: "Roçadeira FS 80", preco: "Consulte Preço", fotos: ["https://casadopicapau.vtexassets.com/arquivos/ids/167004/Stihl-fs80.png?v=638884383893970000"] },
+        { nome: "Roçadeira FS 85", preco: "Consulte Preço", fotos: ["https://stihlferramentas.vtexassets.com/arquivos/ids/156128/FS-85-1080X1080--1-.jpg?v=638790421501500000"] },
+        { nome: "Roçadeira FS 120", preco: "Consulte Preço", fotos: ["https://cdn.awsli.com.br/1102/1102430/produto/130066359/0d82f0f814.jpg"] },
+        { nome: "Roçadeira FS 161", preco: "Consulte Preço", fotos: ["https://images.tcdn.com.br/img/img_prod/972835/rocadeira_stihl_fs_161_a_gasolina_7157_2_aae02f1e144cd3388117fafafbd5e0f4.png"] },
+        { nome: "Roçadeira FS 221", preco: "Consulte Preço", fotos: ["https://cdn.awsli.com.br/1102/1102430/produto/237855304/rocadeira-stihl-fs-221-c-rgf185kn38.jpg"] },
+        { nome: "Roçadeira FS 291", preco: "Consulte Preço", fotos: ["https://camagri.com.br/wp-content/uploads/2025/03/291.webp"] },
+        { nome: "Roçadeira FS 460", preco: "Consulte Preço", fotos: ["https://casadopicapau.vtexassets.com/arquivos/ids/169028/Rocadeira-FS-460-Stihl-TrimCut-.png.png?v=638804240635970000"] },
         { nome: "Pulverizador SR 420", preco: "Consulte Preço", fotos: ["https://stihlferramentas.vtexassets.com/arquivos/ids/155657/97307_SR420_HQ_P_2022-10_0001_EU---usable-RoW.jpg?v=638958378106900000"] },
         { nome: "Pulverizador SR 430", preco: "Consulte Preço", fotos: ["https://www.kraakmantuinmachines.com/cdn/shop/products/img_6017cbd8-bc45-4912-b986-06265da8d706_500x.jpg?v=1677605060"] },
         { nome: "Pulverizador SR 450", preco: "Consulte Preço", fotos: ["https://casadopicapau.vtexassets.com/arquivos/ids/167173/Pulverizador-Stihl-sr-450--1-.png?v=638641842198130000"] },
