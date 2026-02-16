@@ -76,11 +76,16 @@
             line-height: 1.6;
         }
 
-        /* HEADER - Ajustado Z-INDEX e Cor sólida para proibir sobreposição */
+        /* --- HEADER COM IMAGEM DE FUNDO COMPLETA --- */
         header {
-            background-color: var(--stihl-grey-dark);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://i.ibb.co/Cpxr3pTp/Screenshot-2026-02-14-at-10-52-19-Google-Gemini.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
             border-bottom: 6px solid var(--stihl-orange);
-            padding: 15px 0;
+            padding: 40px 0;
             position: sticky;
             top: 0;
             z-index: 10000;
@@ -102,23 +107,15 @@
             padding: 0 20px;
         }
 
-        /* ESTILO DA FOTO DO CABEÇALHO */
-        .logo-foto {
-            max-width: 150px;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 8px;
-        }
-
         /* --- ANIMAÇÃO DO NOME VETMAQ --- */
         header h1 { 
             color: var(--white); 
             margin: 0 0 15px 0; 
             text-transform: uppercase; 
-            font-size: 2.5rem; 
+            font-size: 2.8rem; 
             letter-spacing: -1px;
             font-weight: 900;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
             animation: stihlColors 6s infinite alternate; 
         }
 
@@ -152,13 +149,13 @@
             border-radius: 50px; 
             font-size: 1.1rem; 
             outline: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             background: var(--white);
             transition: all 0.3s ease;
         }
         #busca:focus { 
             border-color: var(--stihl-orange);
-            box-shadow: 0 0 20px rgba(255,102,0,0.3);
+            box-shadow: 0 0 20px rgba(255,102,0,0.4);
             transform: scale(1.02);
         }
 
@@ -320,6 +317,7 @@
 
         @media (max-width: 600px) {
             header h1 { font-size: 1.8rem; }
+            header { padding: 30px 0; }
             .grid-produtos { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .card { padding: 12px; }
             .img-wrapper { height: 130px; }
@@ -367,8 +365,6 @@
 
 <header>
     <div class="header-content">
-        <img src="LINK_DA_SUA_FOTO_AQUI" alt="Logo VETMAQ" class="logo-foto">
-        
         <h1>VET<span>MAQ</span></h1>
         <div class="search-container">
             <input type="text" id="busca" placeholder="O que você procura?">
